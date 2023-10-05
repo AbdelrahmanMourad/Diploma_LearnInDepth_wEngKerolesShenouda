@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 struct SPersonExample
 {
     char Name[20];
@@ -13,7 +12,7 @@ struct SPersonExample
 // Struct Declaration.
 struct SPerson
 {
-    char m_Name[24];
+    char m_Name[20];
     int m_ID;
     char m_Age;
     short m_Salary;
@@ -41,8 +40,7 @@ int main(int argt, char **argv)
     P = &manager;
 
     // Print members of Object manager.
-    printf("manager:\t %s, %d, %d, %d, %lf\r\n"
-        , P->m_Name, P->m_ID, (int)P->m_Age, (int)P->m_Salary, P->m_Weight);
+    printf("manager:\t %s, %d, %d, %d, %lf\r\n", P->m_Name, P->m_ID, (int)P->m_Age, (int)P->m_Salary, P->m_Weight);
 
     // Assign Pointer P Look At Array of Object employees.
     P = employees;
@@ -50,15 +48,15 @@ int main(int argt, char **argv)
     // Print members of each element of array Object employees.
     for (i = 0; i < sizeof(employees) / sizeof(struct SPerson); i++, P++)
     {
-        printf("Employees[%d]: %s, %d, %d, %d, %lf\r\n"
-            , (i + 1), P->m_Name, P->m_ID, (int)P->m_Age, (int)P->m_Salary, P->m_Weight);
+        printf("Employees[%d]: %s, %d, %d, %d, %lf\r\n", (i + 1), P->m_Name, P->m_ID, (int)P->m_Age, (int)P->m_Salary, P->m_Weight);
     }
 
-    printf("Size = %d\n",sizeof(struct SPersonExample));
-    printf("Size = %d\n",sizeof(struct SPerson));
-    printf("Size = %d\n",sizeof(manager));
-    printf("Size = %d\n",sizeof(employees));
-    printf("Size = %d\n",sizeof(double));
+    printf("SPersonExapmle Size = %d\n", sizeof(struct SPersonExample));
+    printf("SPerson        Size = %d\n", sizeof(struct SPerson));
+    printf("manager        Size = %d\n", sizeof(manager));
+    printf("employees[]    Size = %d\n", sizeof(employees));
+    printf("double         Size = %d\n", sizeof(double));
+    printf("long double    Size = %d\n", sizeof(long double));
 
     return 0;
 }
